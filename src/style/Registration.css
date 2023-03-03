@@ -1,0 +1,17 @@
+body {
+    background: beige;
+}
+
+.container {
+    background-color: rgb(218, 196, 102);
+    color: black;
+    align-items: center;
+}
+
+.card {
+    background-color: rgb(214, 212, 212);
+}
+
+.btn {
+    background-color: rgb(218, 196, 102);
+}
