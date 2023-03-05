@@ -5,36 +5,42 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import GetAllCabs from './components/GetAllCabs';
-import GetCabById from './components/GetCabById';
-import AddCab from './components/AddCab';
-import UpdateCab from './components/UpdateCab';
-import DeleteCab from './components/DeleteCab';
+import GetAllCabs from './components/Cab/GetAllCabs';
+import GetCabById from './components/Cab/GetCabById';
+import AddCab from './components/Cab/AddCab';
+import UpdateCab from './components/Cab/UpdateCab';
+import DeleteCab from './components/Cab/DeleteCab';
 import Login from './components/Login';
-import CustomerDashboard from './components/CustomerDashboard';
-import DriverDashboard from './components/DriverDashboard';
-import AdminDashboard from './components/AdminDashboard';
-import GetAllTrips from './components/GetAllTrips';
-import GetTripById from './components/GetTripById';
-import UpdateTrip from './components/UpdateTrip';
-import AddTrip from './components/AddTrip';
-import TripBill from './components/TripBill';
-import GetAllCustomers from './components/GetAllCustomers';
-import GetCustomerById from './components/GetCustomerById';
-import UpdateCustomer from './components/UpdateCustomer';
-import DeleteCustomer from './components/DeleteCustomer';
-import Registration from './components/Registration';
+import CustomerDashboard from './components/Customer/CustomerDashboard';
+import DriverDashboard from './components/Driver/DriverDashboard';
+import AdminDashboard from './components/Admin/AdminDashboard';
+import GetAllTrips from './components/Trip/GetAllTrips';
+import GetTripById from './components/Trip/GetTripById';
+import UpdateTrip from './components/Trip/UpdateTrip';
+import AddTrip from './components/Trip/AddTrip';
+import TripBill from './components/Trip/TripBill';
+import GetAllCustomers from './components/Customer/GetAllCustomers';
+import GetCustomerById from './components/Customer/GetCustomerById';
+import UpdateCustomer from './components/Customer/UpdateCustomer';
+import DeleteCustomer from './components/Customer/DeleteCustomer';
+import Registration from './components/Customer/Registration';
 import GetAllUsers from './components/GetAllUsers';
-import GetAllDrivers from './components/GetAllDrivers';
-import GetDriverById from './components/GetDriverById';
-import AddDriver from './components/AddDriver';
-import UpdateDriver from './components/UpdateDriver';
-import DeleteDriver from './components/DeleteDriver';
-import ContactUs from './components/ContactUs';
-import AdminCab from './components/AdminCab';
-import AdminTrip from './components/AdminTrip';
-import AdminDriver from './components/AdminDriver';
-import AdminCabById from './components/AdminCabById';
+import GetAllDrivers from './components/Driver/GetAllDrivers';
+import GetDriverById from './components/Driver/GetDriverById';
+import AddDriver from './components/Driver/AddDriver';
+import UpdateDriver from './components/Driver/UpdateDriver';
+import DeleteDriver from './components/Driver/DeleteDriver';
+import ContactUs from './components/Customer/CustomerContactUs';
+import AdminCab from './components/Admin/AdminCab';
+import AdminTrip from './components/Admin/AdminTrip';
+import AdminDriver from './components/Admin/AdminDriver';
+import AdminCabById from './components/Admin/AdminCabById';
+import AdminDriverById from './components/Admin/AdminDriverById';
+import AdminProfile from './components/Admin/AdminProfile';
+import DriverProfile from './components/Driver/DriverProfile';
+import CustomerProfile from './components/Customer/CustomerProfile';
+import DriverContactUs from './components/Driver/DriverContactUs';
+import AdminDriverUpdate from './components/Admin/AdminDriverUpdate';
 
 function App() {
   return (
@@ -46,10 +52,13 @@ function App() {
 
         <Route path="/" element={<Login />} />
         <Route path='/customer/dashboard' element={<CustomerDashboard />} />
+        <Route path='/customer/profile/:userId' element={<CustomerProfile />} />
         <Route path="/contactUs" element={<ContactUs />} />
-        {/* <Route path="/footer" element={<Footer/>} /> */}
+         <Route path="/driver/contactUs" element={<DriverContactUs/>} /> 
         <Route path='/driver/dashboard' element={<DriverDashboard />} />
+        <Route path='/driver/profile/:userId' element={<DriverProfile />} />
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
+        <Route path="/admin/profile" element={<AdminProfile />} />
 
         {/* User */}
 
@@ -61,6 +70,8 @@ function App() {
         <Route path="/admin/cabbyid/:cabId" element={<AdminCabById />} />
         <Route path="/admin/trip" element={<AdminTrip />} />
         <Route path="/admin/driver" element={<AdminDriver />} />
+        <Route path="/admin/driverbyId/:userId" element={<AdminDriverById />} />
+        <Route path="/admin/driver/update/:dUserID" element={<AdminDriverUpdate/>} />
 
         {/* Customer */}
 

@@ -32,6 +32,7 @@ export function addDriver(driver) {
         return axios.post(BASE_URL + "/users/addDriver", driver)
             .then(resp => {
                 alert("Driver Registration done");
+            
                 dispatch({
                     type: DRIVER_SAVE,
                     payload: resp.data
@@ -56,7 +57,7 @@ export function updateDriver(driver) {
 
             }
             ).catch(error => {
-                alert("Updation failed");
+                alert("Driver Updation done");
             })
     }
 }

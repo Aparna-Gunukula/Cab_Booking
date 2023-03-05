@@ -2,7 +2,7 @@ export const BASE_URL = "http://localhost:8080/api";
 
 //ACTION CONSTRAINTS FOR LOGIN
 export const LOGIN = 'login';
-export const LOGOUT = 'logout';
+export const LOGOUT = 'login';
 
 //ACTION CONSTRAINTS FOR TRIPBOOKING
 export const FETCH_TRIP_ALL = 'trip/getAll';

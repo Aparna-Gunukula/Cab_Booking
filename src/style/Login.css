@@ -1,0 +1,10 @@
+.cover{
+    background-color: azure;
+    width: 30em;
+    height: 35em;
+    display: flex;
+    position: relative;
+    border-radius: 1em;
+    box-shadow: 0 0.188em rgb(100, 156)
+
+}

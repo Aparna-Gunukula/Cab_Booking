@@ -8,8 +8,7 @@ import {
 export function login(loggedInUser) {
     return dispatch => {
         return axios.post(BASE_URL + "/auth/login", loggedInUser)
-            .then(resp => {
-                alert("Login Successful");
+            .then(resp => {            
                 dispatch({
                     type: LOGIN,
                     payload: resp.data
@@ -23,10 +22,12 @@ export function login(loggedInUser) {
 }
 export function logOut() {
     const myuser = JSON.parse(localStorage.getItem("myuser"));
+    return dispatch => {
     if (myuser !== null) {
         localStorage.removeItem("myuser")
         return {
             type: LOGOUT
         }
     }
+}
 }

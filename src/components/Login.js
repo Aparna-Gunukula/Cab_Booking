@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../store/actions/LoginAction";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import cab1 from "../assets/cab1.jpg";
+import CAR1 from "../assets/CAR1.jpg";
 import pic from "../assets/pic.png"
+import "../style/Login.css"
+
 
 function Login() {
     const [uname, setUname] = useState('');
@@ -19,10 +21,10 @@ function Login() {
     const doLogin = () => {
         let errors = {};
         if (!uname) {
-            errors['userNameError'] = "Username is required";
+            errors['userNameError'] = "*This field is required";
         }
         if (!upwd) {
-            errors['passwordError'] = "Password is required";
+            errors['passwordError'] = "*This field is required";
         }
         setFormErrors(errors);
         if (Object.keys(errors).length === 0) {
@@ -45,32 +47,49 @@ function Login() {
                             navigate("/admin/dashboard") :
 
                             <div>
-                                <img className="card-img-top" src={cab1} alt="Card image" style={{ width: '40%', marginTop: '10px' }} />
-                                <img className="card-img-top" src={pic} alt="Card image" style={{ width: '10%', marginLeft: '450px', marginBottom: '190px'  }} />
-                                <div style={{ marginLeft: '900px', marginTop: '-180px'  }}>
-                                    <div>
-                                        <label>UserName </label>
-                                        <input type="text" name="uname" value={uname}
-                                            onChange={event => setUname(event.target.value)} />
-                                        {
-                                            formErrors.userNameError && <div style={{ color: 'red' }}>{formErrors.userNameError}</div>
-                                        }
-                                    </div>
-                                    <div>
-                                        <label>Password </label>
-                                        <input type="password" name="upwd" value={upwd}
-                                            onChange={event => setUpwd(event.target.value)} />
-                                        {
-                                            formErrors.passwordError && <div style={{ color: 'red' }}>{formErrors.passwordError}</div>
-                                        }
+                                <div>
+                                    <img className="card-img-top" src={CAR1} alt="Card image" style={{ width: '100%', marginTop: '10px' }} />
+
+                                    {/* <img className="card-img-top" src={pic} alt="Card image" style={{ width: '10%', marginLeft: '450px', marginBottom: '190px'  }} /> */}
+
+                                    <div /* className="cover" */>
+
+                                        <div style={{ marginTop: '-80px', color: 'white' }}>
+                                            <h1 style={{marginLeft:10, fontFamily: 'sans-serif', fontStyle: 'italic', textShadowColor:'#000',textShadowOffset:{width:0.5,height:0.5},textShadowRadius:1 }}>CAB BOOKING APPLICATION</h1>
+                                        </div>
+                                        <div style={{ marginLeft: '800px', marginTop: '-230px' }}>
+                                            <div >
+                                                <label style={{ color: "white" }}><b>Username &nbsp;</b></label>
+                                                <input type="text" name="uname" value={uname} required style={{ borderRadius: '20px' }}
+                                                    onChange={event => setUname(event.target.value)} />
+                                                {
+                                                    formErrors.userNameError && <div style={{ color: 'red' }}>{formErrors.userNameError}</div>
+                                                }
+                                            </div>
+                                            <div >
+                                                <label style={{ color: "white" }}><b>Password &nbsp;&nbsp;</b></label>
+                                                <input type="password" name="upwd" value={upwd} required style={{ borderRadius: '20px' }}
+                                                    onChange={event => setUpwd(event.target.value)} />
+                                                {
+                                                    formErrors.passwordError && <div style={{ color: 'red' }}>{formErrors.passwordError}</div>
+                                                }
+                                            </div>
+                                            <div style={{ marginTop: '10px' }}>
+                                                <button disabled={!upwd} className="btn btn-primary" onClick={doLogin} style={{ borderRadius: 15 }} >Login</button>&nbsp;
+
+                                                <h6 style={{ color: "white" }}>Don't have an Account?</h6>
+                                                <Link to={`/customer/add`} style={{ borderRadius: 15 }} className="btn btn-primary" >Register </Link>
+                                            </div>
+                                        </div>
 
                                     </div>
-                                    <button className="btn btn-primary" onClick={doLogin}>Login</button>
-                                    <Link style={{ marginLeft: '10px' }} to={`/customer/add`} className="btn btn-primary" >Register</Link>
+
                                 </div>
                             </div>
+
             }
         </div>
+
 
     )
 

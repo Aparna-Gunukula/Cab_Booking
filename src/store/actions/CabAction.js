@@ -76,6 +76,9 @@ export function deleteCab(cabId) {
                     payload: resp.data
                 });
             })
+            .catch(error => {
+                alert("Deletion failed");
+            })
 
     }
 }
